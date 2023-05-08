@@ -4,7 +4,7 @@ import { hentUbetalingsdata } from "../api/api";
 import { Alert, Button, Heading, Loader, Table } from "@navikt/ds-react";
 import React from "react";
 import { PosteringSøkedata } from "../types/PosteringSøkedata";
-import { b } from "vitest/dist/types-e3c9754d";
+import styles from "./PosteringResultatPage.module.css"
 
 type Props = {
   søkeData: PosteringSøkedata;
@@ -66,7 +66,7 @@ export function PosteringResultatPage(props: Props) {
             </Table.Body>
           </Table>
           <br />
-          <div className="flex flex-row gap-4">
+          <div className={styles.test}>
             <Button size="small" onClick={() => props.handleSøk(false)}>
               Tilbake til gjeldende søk
             </Button>
