@@ -2,6 +2,7 @@ import React, { FormEventHandler } from "react";
 import { Button, GuidePanel, Heading, Radio, RadioGroup, TextField } from "@navikt/ds-react";
 import { PosteringSøkedata } from "../types/PosteringSøkedata";
 import { Periodetype } from "../types/Periodetype";
+import styles from './PosteringSøkPage.module.css'
 
 type Props = {
   handleSubmit: FormEventHandler<HTMLFormElement> | undefined;
@@ -23,7 +24,7 @@ export function PosteringSøkPage(props: Props) {
 
   return (
     <form onSubmit={props.handleSubmit}>
-      <div className="grid grid-cols-1 gap-2">
+      <div className={styles.wrapper}>
         <Heading size="large">SHADOW TEST</Heading>
         <div>
           <GuidePanel>
@@ -34,7 +35,7 @@ export function PosteringSøkPage(props: Props) {
             </ul>
           </GuidePanel>
         </div>
-        <div className="grid grid-cols-3 gap-1">
+        <div className={styles.wrapper2}>
           <div>
             <TextField
               htmlSize={11}
@@ -56,7 +57,7 @@ export function PosteringSøkPage(props: Props) {
             />
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-1">
+        <div className={styles.wrapper2}>
           <div>
             <RadioGroup
               legend="Velg periodetype"
@@ -90,7 +91,7 @@ export function PosteringSøkPage(props: Props) {
             />
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-1">
+        <div className={styles.wrapper2}>
           <>
             <TextField
               htmlSize={15}
@@ -113,7 +114,7 @@ export function PosteringSøkPage(props: Props) {
           </>
         </div>
 
-        <div className="grid grid-cols-3 gap-1">
+        <div className={styles.wrapper2}>
           <div>
             <TextField
               htmlSize={15}
