@@ -25,7 +25,7 @@ export function PosteringSøkPage(props: Props) {
   return (
     <form onSubmit={props.handleSubmit}>
       <div className={styles.wrapper}>
-        <Heading size="large">SHADOW TEST</Heading>
+        <Heading size="large">CSS TEST</Heading>
         <div>
           <GuidePanel>
             Her kan du søke opp posteringer. Påkrevede felter er:
@@ -137,7 +137,9 @@ export function PosteringSøkPage(props: Props) {
           </div>
         </div>
 
-        
+        <div>
+          <Button size="small">Søk</Button>
+        </div>
       </div>
     </form>
   );
