@@ -23,7 +23,7 @@ export function PosteringResultatPage(props: Props) {
 
   return (
     <>
-      
+
       {isLoading ? (
         <Loader size="3xlarge" title="venter..." variant="interaction" />
       ) : isError ? (

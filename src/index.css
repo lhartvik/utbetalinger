@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "../node_modules/@navikt/ds-css";
+@import "../node_modules/@navikt/ds-css-internal";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 html,
 body {
@@ -8,7 +10,7 @@ body {
 }
 
 body {
-  background-color: #f1f1f1;
+  background-color: var(--a-bg-default);
 }
 
 .page-wrapper {
@@ -25,5 +27,4 @@ body {
 
 main {
   width: 100%;
-  max-width: 808px;
 }
