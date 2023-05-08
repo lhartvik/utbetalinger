@@ -1,0 +1,37 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: utbetalinger-frontend-poc
+  namespace: okonomi
+  labels:
+    team: okonomi
+  annotations:
+    config.linkerd.io/proxy-memory-limit: "512Mi"
+    config.linkerd.io/proxy-memory-request: "128Mi"
+spec:
+#  env:
+#  - name: CORS_ALLOWED_ORIGIN
+#    value: "https://www.hoved-container-som-setter-sammen-alle-mikrofrontend.intern.dev.nav.no/"
+  image: {{ image }}
+  port: 7100
+  liveness:
+    path: /utbetalinger-frontend-poc/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /utbetalinger-frontend-poc/internal/isReady
+    initialDelay: 10
+  prometheus:
+    enabled: true
+    path: /utbetalinger-frontend-poc/internal/metrics
+  replicas:
+    min: 2
+    max: 4
+  ingresses:
+    - "https://utbetalinger-frontend-poc.intern.nav.no/utbetalinger-frontend-poc"
+  resources:
+    limits:
+      cpu: "3"
+      memory: 1268Mi
+    requests:
+      cpu: "500m"
+      memory: 1024Mi

@@ -1,0 +1,45 @@
+name: Bygg og test PR
+
+on:
+  pull_request:
+
+jobs:
+  build-pull-request:
+    name: Bygg og test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sjekker ut repo
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Cache klient node_modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Cache server node_modules
+        id: cache-server-node-modules
+        uses: actions/cache@v3
+        with:
+          path: server/node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('server/package-lock.json') }}
+
+      - name: Installerer dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Installerer dependencies for server
+        if: steps.cache-server-node-modules.outputs.cache-hit != 'true'
+        run: cd server && npm install
+
+#      - name: Kjører tester
+#        run: npm run test
+
+      - name: Bygger applikasjonen
+        run: npm run build
