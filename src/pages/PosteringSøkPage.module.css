@@ -1,11 +1,7 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 0.5rem;
+    @apply grid grid-cols-1 gap-2
 }
 
 .wrapper2 {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.25rem;
+    @apply grid grid-cols-3 gap-1
 }

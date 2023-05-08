@@ -2,7 +2,7 @@ import React, { FormEventHandler } from "react";
 import { Button, GuidePanel, Heading, Radio, RadioGroup, TextField } from "@navikt/ds-react";
 import { PosteringSøkedata } from "../types/PosteringSøkedata";
 import { Periodetype } from "../types/Periodetype";
-import styles from './PosteringSøkPage.module.css'
+import styles from "./PosteringSøkPage.module.css"
 
 type Props = {
   handleSubmit: FormEventHandler<HTMLFormElement> | undefined;
@@ -35,7 +35,7 @@ export function PosteringSøkPage(props: Props) {
             </ul>
           </GuidePanel>
         </div>
-        <div className={styles.wrapper2}>
+        <div className="grid grid-cols-3 gap-1">
           <div>
             <TextField
               htmlSize={11}
