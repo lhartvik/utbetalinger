@@ -137,9 +137,7 @@ export function PosteringSøkPage(props: Props) {
           </div>
         </div>
 
-        <div>
-          <Button size="small">Søk</Button>
-        </div>
+        
       </div>
     </form>
   );
